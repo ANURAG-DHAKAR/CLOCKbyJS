@@ -1,85 +1,86 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    color: white;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: #1d1f20;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #1d1f20;
 }
 
 .container {
-    position: relative;
+  position: relative;
 }
 
 .clock {
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-    background: url(BMW1.png);
-    box-shadow: 0 0 30px rgb(255, 252, 255);
-    background-repeat: no-repeat;
-    background-position:center;
-    background-size: cover;
-    justify-content: center;
-    align-items: center;
-    display: flex;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: url(BMW1.png);
+  box-shadow: 0 0 30px rgb(255, 252, 255);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
+/* Numbers around clock */
 .clock span {
-    position: absolute;
-    transform: rotate(calc(30deg * var(--i)));
-    inset: 12px;
-    text-align: center;
-
-}
-
-b {
-    font-size: 25px;
-    font-style: italic;
-    border-radius: 50%;
-    width: 28px;
-    box-shadow: 0 0 4px grey;
-    color: rgb(255, 255, 255)
-    
+  position: absolute;
+  transform: rotate(calc(30deg * var(--i)));
+  inset: 12px;
+  text-align: center;
 }
 
 .clock span b {
-    transform: rotate(calc(-30deg * var(--i)));
-    display: inline-block;
-
-
+  font-size: 25px;
+  font-style: italic;
+  border-radius: 50%;
+  width: 28px;
+  box-shadow: 0 0 4px grey;
+  color: #fff;
+  transform: rotate(calc(-30deg * var(--i)));
+  display: inline-block;
 }
 
+/* Center dot */
 .clock::before {
-    content: '';
-    position: absolute;
-    margin-left: 5px;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: rgb(188, 0, 0);
-    z-index: 2;
-
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgb(188, 0, 0);
+  z-index: 10;
+  transform: translate(-50%, -50%);
 }
 
+/* Hands */
 .hand {
-    position: absolute;
-    display: flex;
-    justify-self: center;
-    align-items: flex-end;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: bottom;
+  transform: rotate(90deg);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 .hand i {
-    position: absolute;
-    background-color: var(--clr);
-    width: 4px;
-    height: var(--h);
-    border-radius: 8px;
-
+  position: absolute;
+  background-color: var(--clr);
+  width: 4px;
+  height: var(--h);
+  border-radius: 8px;
 }
