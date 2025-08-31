@@ -21,11 +21,11 @@ body {
     width: 500px;
     height: 500px;
     border-radius: 50%;
-    background: url();
+    background: url(BMW1.png);
     box-shadow: 0 0 30px rgb(255, 252, 255);
     background-repeat: no-repeat;
-    background-position: ;
-    background-size: contain;
+    background-position:center;
+    background-size: cover;
     justify-content: center;
     align-items: center;
     display: flex;
