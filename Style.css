@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #1d1f20;
+}
+
+.container {
+    position: relative;
+}
+
+.clock {
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: url();
+    box-shadow: 0 0 30px rgb(255, 252, 255);
+    background-repeat: no-repeat;
+    background-position: ;
+    background-size: contain;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.clock span {
+    position: absolute;
+    transform: rotate(calc(30deg * var(--i)));
+    inset: 12px;
+    text-align: center;
+
+}
+
+b {
+    font-size: 25px;
+    font-style: italic;
+    border-radius: 50%;
+    width: 28px;
+    box-shadow: 0 0 4px grey;
+    color: rgb(255, 255, 255)
+    
+}
+
+.clock span b {
+    transform: rotate(calc(-30deg * var(--i)));
+    display: inline-block;
+
+
+}
+
+.clock::before {
+    content: '';
+    position: absolute;
+    margin-left: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgb(188, 0, 0);
+    z-index: 2;
+
+}
+
+.hand {
+    position: absolute;
+    display: flex;
+    justify-self: center;
+    align-items: flex-end;
+}
+
+.hand i {
+    position: absolute;
+    background-color: var(--clr);
+    width: 4px;
+    height: var(--h);
+    border-radius: 8px;
+
+}
