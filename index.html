@@ -1,33 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clock</title>
-  <link rel="stylesheet" href="style.css">
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://media.istockphoto.com/id/165666345/vector/time.jpg?s=612x612&w=0&k=20&c=zl0baLJ8nuL6GseXb84AnK5lBoEjYxM0fYMAgAdyxls=">
+    <title>Analog Clock</title>
+    <link rel="stylesheet" href="Style.css">
+
 </head>
 <body>
-  <div class="container">
-    <div class="clock">
-      <div id="hour" style="--clr:rgb(255, 229, 229);--h:100px;" class="hand"><i></i></div>
-      <div id="min" style="--clr:rgb(0, 141, 141);--h:164px;"class="hand"><i></i></div>
-      <div id="sec" style="--clr:rgb(218, 30, 30);--h:200px;"class="hand"><i></i></div>
-      <span style="--i:1;"><b>1</b></span>
-      <span style="--i:2;"><b>2</b></span>
-      <span style="--i:3;"><b>3</b></span>
-      <span style="--i:4;"><b>4</b></span>
-      <span style="--i:5;"><b>5</b></span>
-      <span style="--i:6;"><b>6</b></span>
-      <span style="--i:7;"><b>7</b></span>
-      <span style="--i:8;"><b>8</b></span>
-      <span style="--i:9;"><b>9</b></span>
-      <span style="--i:10;"><b>10</b></span>
-      <span style="--i:11;"><b>11</b></span>
-      <span style="--i:12;"><b>12</b></span>
-    </div>
-  </div>
-  <script src="JS.js"></script>
+<!-- Background -->
+<div class="stars"></div>
+<div class="sun"></div>
+<div class="orbit earth">
+    <div class="planet"></div>
+</div>
+<div class="orbit mars">
+    <div class="planet"></div>
+</div>
 
+<!-- Clock -->
+<div class="clock">
+    <div id="hour" class="hand"><i></i></div>
+    <div id="min" class="hand"><i></i></div>
+    <div id="sec" class="hand"><i></i></div>
+
+    <span style="--i:1;"><b>1</b></span>
+    <span style="--i:2;"><b>2</b></span>
+    <span style="--i:3;"><b>3</b></span>
+    <span style="--i:4;"><b>4</b></span>
+    <span style="--i:5;"><b>5</b></span>
+    <span style="--i:6;"><b>6</b></span>
+    <span style="--i:7;"><b>7</b></span>
+    <span style="--i:8;"><b>8</b></span>
+    <span style="--i:9;"><b>9</b></span>
+    <span style="--i:10;"><b>10</b></span>
+    <span style="--i:11;"><b>11</b></span>
+    <span style="--i:12;"><b>12</b></span>
+
+    <div class="digital" id="digital"></div>
+</div>
+
+<script>
+    function updateClock() {
+      let hr = document.getElementById('hour');
+      let min = document.getElementById('min');
+      let sec = document.getElementById('sec');
+      let digital = document.getElementById('digital');
+
+      let now = new Date();
+      let hh = now.getHours();
+      let mm = now.getMinutes();
+      let ss = now.getSeconds();
+
+      let hRotation = 30 * hh + mm / 2;
+      let mRotation = 6 * mm;
+      let sRotation = 6 * ss;
+
+      hr.style.transform = `rotate(${hRotation}deg)`;
+      min.style.transform = `rotate(${mRotation}deg)`;
+      sec.style.transform = `rotate(${sRotation}deg)`;
+
+      let ampm = hh >= 12 ? "PM" : "AM";
+      let hr12 = hh % 12 || 12;
+      digital.innerHTML = `${hr12.toString().padStart(2, '0')}:${mm
+        .toString().padStart(2, '0')}:${ss.toString().padStart(2, '0')} ${ampm}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+</script>
 </body>
 </html>
